@@ -4,8 +4,8 @@ const searchEngines = [
   { name: 'StartPage', logo: 'images/Search-Engine-Logos/StartPage.png', url: 'https://www.startpage.com/sp/search?query=' },
   { name: 'DuckDuckGo', logo: 'images/Search-Engine-Logos/DuckDuckGo.png', url: 'https://duckduckgo.com/?q=' },
   { name: 'Brave', logo: 'images/Search-Engine-Logos/Brave.png', url: 'https://search.brave.com/search?q=' },
-  { name: 'GitHub', logo: 'images/Search-Engine-Logos/GitHub.png', url: 'https://github.com/search?q=' },
   { name: 'SearXNG TechSaviours', logo: 'images/Search-Engine-Logos/SearXNG.png', url: 'https://searx.techsaviours.org/search?q=' },
+  { name: 'GitHub', logo: 'images/Search-Engine-Logos/GitHub.png', url: 'https://github.com/search?q=' },
   // Lisää muita hakukoneita tarvittaessa
 ];
 
@@ -21,12 +21,14 @@ searchEngines.forEach(engine => {
   // Aseta nappiin klikkaustapahtumankäsittelijä ja välitä parametrina hakukoneen nimi
   engineButton.addEventListener('click', () => {
     selectedEngine = engine.name; // Tallenna valittu hakukone
-    // Aseta valittu hakukone aktiiviseksi visuaalisesti
-    searchEngines.forEach(engine => {
-      document.getElementById(engine.name).classList.remove('active');
+    // Poista 'active' -luokka kaikista napeista
+    document.querySelectorAll('.engine').forEach(btn => {
+      btn.classList.remove('active');
     });
-    document.getElementById(selectedEngine).classList.add('active');
+    // Lisää 'active' -luokka klikatulle napille
+    engineButton.classList.add('active');
   });
+
 
   // Lisätään nimi ja logo div-elementtiin
   engineButton.innerHTML = `
@@ -43,13 +45,17 @@ searchEngines.forEach(engine => {
   }
 });
 
-// Haetaan hakusana syötekentästä
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('keypress', function(event) {
+// Lisätään kuuntelija Enter-näppäimen painallukselle koko dokumentissa
+document.addEventListener('keypress', function(event) {
   // Tarkista onko Enter-näppäintä painettu ja onko hakukone valittu
   if (event.key === 'Enter' && selectedEngine !== '') {
     const searchQuery = searchInput.value;
     const searchURL = searchEngines.find(engine => engine.name === selectedEngine).url + encodeURIComponent(searchQuery);
-    window.open(searchURL, '_blank');
+    window.location.href = searchURL; // Siirry hakutuloksiin nykyisessä välilehdessä
   }
 });
+
+// Asetetaan syötekenttä aktiiviseksi sivun avautuessa
+window.onload = function() {
+  document.getElementById("searchInput").focus();
+};
