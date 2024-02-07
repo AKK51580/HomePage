@@ -7,7 +7,10 @@ body {
     background: fixed linear-gradient(#ffec3f, #717dff);
     box-sizing: border-box;
     min-height: 100vh;
-    margin: 50px
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 h1 {
     margin: 30px 0 30px 0;
@@ -25,11 +28,17 @@ h1 {
     justify-content: center;
 }
 #Search_Bar input{
-    max-width: 100%;
+    max-width: 500px;
+    width: 100%;
     height: 40px;
     margin: 10px;
     text-align: center;
+    border: none;
     border-radius: 10px;
+}
+#Search_Bar input:focus{
+border: none;
+outline: none;
 }
 #Search_Engines {
     display: flex;
@@ -44,16 +53,25 @@ h1 {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
 }
 .active {
     background-color: #ff9900; /* Tässä voit määrittää valitun hakukoneen taustavärin */
+    border-radius: 20px;
 }
 .engine p{
     text-align: center;
+    color: #000000;
 }
 .engine img {
     text-align: center;
     width: 130px;
     height: 130px;
     object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
+
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-drag: none; /* Safari ja Chrome */
+    -webkit-user-select: none; /* Safari ja Chrome */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Yleinen arvo */
 }
