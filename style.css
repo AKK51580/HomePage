@@ -1,77 +1,81 @@
 * {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 body {
-    background: fixed linear-gradient(#ffec3f, #717dff);
-    box-sizing: border-box;
-    min-height: 100vh;
-    margin: 50px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  background: fixed linear-gradient(#ffec3f, #717dff);
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 h1 {
-    margin: 30px 0 30px 0;
-    text-align: center;
-    font-size: 70px;
+  margin: 30px 0 30px 0;
+  text-align: center;
+  font-size: 70px;
 }
 .searchbox {
-    background: linear-gradient(#9198e5, #e66465);
-    height: auto;
+  /* background: linear-gradient(#9198e5, #e66465); */
+  height: auto;
 }
 #Search_Bar {
-    width: auto;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
+  width: auto;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
 }
-#Search_Bar input{
-    max-width: 500px;
-    width: 100%;
-    height: 40px;
-    margin: 10px;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
+#Search_Bar input {
+  max-width: 550px;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: #000000 0px 0px 10px -4px;
 }
-#Search_Bar input:focus{
-border: none;
-outline: none;
+#Search_Bar input:focus {
+  border: none;
+  outline: none;
 }
 #Search_Engines {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .engine {
-    width: 150px;
-    height: 175px;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
+  width: 150px;
+  height: 175px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 20px;
+  box-shadow: #000000 0px 0px 10px -4px;
 }
 .active {
-    background-color: #ff9900; /* Tässä voit määrittää valitun hakukoneen taustavärin */
-    border-radius: 20px;
+  background-color: #ff9900; /* Tässä voit määrittää valitun hakukoneen taustavärin */
+  border-radius: 20px;
 }
-.engine p{
-    text-align: center;
-    color: #000000;
+.engine p {
+  text-align: center;
+  color: #000000;
 }
 .engine img {
-    text-align: center;
-    width: 130px;
-    height: 130px;
-    object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
+  text-align: center;
+  width: 130px;
+  height: 130px;
+  object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
 
-    -moz-user-select: none; /* Firefox */
-    -webkit-user-drag: none; /* Safari ja Chrome */
-    -webkit-user-select: none; /* Safari ja Chrome */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Yleinen arvo */
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-drag: none; /* Safari ja Chrome */
+  -webkit-user-select: none; /* Safari ja Chrome */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Yleinen arvo */
 }
