@@ -68,20 +68,3 @@ searchEngines.forEach((engine) => {
     engineButton.click(); // Klikataan ensimmäistä hakukoneen nappia
   }
 });
-
-// Lisätään kuuntelija Enter-näppäimen painallukselle koko dokumentissa
-document.addEventListener("keypress", function (event) {
-  // Tarkista onko Enter-näppäintä painettu ja onko hakukone valittu
-  if (event.key === "Enter" && selectedEngine !== "") {
-    const searchQuery = searchInput.value;
-    const searchURL =
-      searchEngines.find((engine) => engine.name === selectedEngine).url +
-      encodeURIComponent(searchQuery);
-    window.location.href = searchURL; // Siirry hakutuloksiin nykyisessä välilehdessä
-  }
-});
-
-// Asetetaan syötekenttä aktiiviseksi sivun avautuessa
-window.onload = function () {
-  document.getElementById("searchInput").focus();
-};
