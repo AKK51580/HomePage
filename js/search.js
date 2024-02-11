@@ -1,38 +1,50 @@
+const searchInput = document.getElementById("searchInput");
+const clearInputBtn = document.getElementById("clearInput");
+
 // Lisätään kuuntelija Enter-näppäimen painallukselle koko dokumentissa
 document.addEventListener("keypress", function (event) {
-    // Tarkista onko Enter-näppäintä painettu ja onko hakukone valittu
-    if (event.key === "Enter" && selectedEngine !== "") {
-      const searchQuery = searchInput.value;
-      const searchURL =
-        searchEngines.find((engine) => engine.name === selectedEngine).url +
-        encodeURIComponent(searchQuery);
-      window.location.href = searchURL; // Siirry hakutuloksiin nykyisessä välilehdessä
-    }
-  });
-  
-    // Käsitellään swipe-oikealle tapahtumaa
-    let startX;
-    let endX;
-    document.getElementById("Search_Bar").addEventListener("touchstart", function(event) {
-      startX = event.touches[0].clientX;
-    });
+  // Tarkista onko Enter-näppäintä painettu ja onko hakukone valittu
+  if (event.key === "Enter" && selectedEngine !== "") {
+    runSearch();
+  }
+});
 
-    document.getElementById("Search_Bar").addEventListener("touchend", function(event) {
-      endX = event.changedTouches[0].clientX;
-      if (startX - endX > 50) {
-        search();
-      }
-    });
+runSearchBtn.addEventListener("click", function () {
+  runSearch();
+});
 
-  // Lisää Clear-nappulan toiminnallisuus
-  let clearButton = document.getElementById("clearInput");
-    clearButton.addEventListener("click", function() {
-      let searchInput = document.getElementById("searchInput");
-      searchInput.value = ""; // Tyhjennä input-kenttä
-      searchInput.focus(); // Aseta input-kenttä takaisin aktiiviseksi
-  });
-  
-  // Asetetaan syötekenttä aktiiviseksi sivun avautuessa
-  window.onload = function () {
-    document.getElementById("searchInput").focus();
-  };
+function runSearch() {
+  const searchQuery = searchInput.value;
+  const searchURL =
+    searchEngines.find((engine) => engine.name === selectedEngine).url +
+    encodeURIComponent(searchQuery);
+  window.location.href = searchURL; // Siirry hakutuloksiin nykyisessä välilehdessä
+}
+
+// Lisää Clear-nappulan toiminnallisuus
+clearInputBtn.addEventListener("click", function () {
+  let searchInput = document.getElementById("searchInput");
+  searchInput.value = ""; // Tyhjennä input-kenttä
+  toggleClearButtonVisibility();
+  searchInput.focus(); // Aseta input-kenttä takaisin aktiiviseksi
+});
+
+// Lisää tapahtumankäsittelijä joka kerta kun input-arvo muuttuu
+searchInput.addEventListener("input", toggleClearButtonVisibility);
+
+// Asetetaan clearInputBtn:n näkyvyys oletuksena "none"
+clearInputBtn.style.display = "none";
+
+// Funktio tarkistaa inputin tilan ja näyttää/piilottaa clearInput-painikkeen sen mukaan
+function toggleClearButtonVisibility() {
+  if (searchInput.value.trim() !== "") {
+    clearInputBtn.style.display = "block";
+  } else {
+    clearInputBtn.style.display = "none";
+  }
+}
+
+// Asetetaan syötekenttä aktiiviseksi sivun avautuessa
+window.onload = function () {
+  searchInput.focus();
+};

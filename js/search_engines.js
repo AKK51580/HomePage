@@ -2,14 +2,14 @@ let selectedEngine = ""; // Muuttuja valitun hakukoneen nimen tallentamiseen
 
 const searchEngines = [
   {
-    name: "StartPage",
-    logo: "images/Search-Engine-Logos/StartPage.png",
-    url: "https://www.startpage.com/sp/search?query=",
-  },
-  {
     name: "DuckDuckGo",
     logo: "images/Search-Engine-Logos/DuckDuckGo.png",
     url: "https://duckduckgo.com/?q=",
+  },
+  {
+    name: "StartPage",
+    logo: "images/Search-Engine-Logos/StartPage.png",
+    url: "https://www.startpage.com/sp/search?query=",
   },
   {
     name: "Brave",
@@ -17,7 +17,7 @@ const searchEngines = [
     url: "https://search.brave.com/search?q=",
   },
   {
-    name: "SearXNG TechSaviours",
+    name: "SearXNG",
     logo: "images/Search-Engine-Logos/SearXNG.png",
     url: "https://searx.techsaviours.org/search?q=",
   },
@@ -52,6 +52,7 @@ searchEngines.forEach((engine) => {
     });
     // Lisää 'active' -luokka klikatulle napille
     engineButton.classList.add("active");
+    searchInput.focus(); // Aseta input-kenttä takaisin aktiiviseksi
   });
 
   // Lisätään nimi ja logo div-elementtiin

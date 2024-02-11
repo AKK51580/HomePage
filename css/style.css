@@ -13,12 +13,12 @@ body {
   flex-direction: column;
 }
 h1 {
+  color: #ffffff6e;
   margin: 30px 0 30px 0;
   text-align: center;
   font-size: 70px;
 }
 .searchbox {
-  /* background: linear-gradient(#9198e5, #e66465); */
   height: auto;
 }
 #Search_Bar_wrapper {
@@ -27,30 +27,54 @@ h1 {
 }
 #Search_Bar {
   position: relative;
-  width: 550px;
+  width: 700px;
   margin: 0 20px 40px 20px;
   display: flex;
   justify-content: center;
 }
 #Search_Bar input {
-  max-width: 550px;
+  background-color: #ffffff6e;
   width: 100%;
-  height: 40px;
+  height: 55px;
   text-align: center;
   border: none;
   border-radius: 10px;
   font-size: 16px;
-  box-shadow: #000000 0px 0px 10px -4px;
+  box-shadow: #ffffff 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -4px;
 }
 #Search_Bar input:focus {
   border: none;
   outline: none;
+  box-shadow: #ffffff 0px 0px 10px -4px, inset #313131 0px 0px 10px -4px;
+}
+
+.inputButtons {
+  background-color: #ffffff00;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: #ffffff 0px 0px 4px -2px, inset #ffffff 0px 0px 4px -2px;
+}
+.inputButtons:hover {
+  box-shadow: #ffffff 0px 0px 4px -2px, inset #000000 0px 0px 4px -2px;
 }
 #clearInput {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 10px;
+}
+#runSearchBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+#runSearchBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
 }
 
 #Search_Engines {
@@ -60,6 +84,7 @@ h1 {
   justify-content: center;
 }
 .engine {
+  position: relative;
   width: 150px;
   height: 175px;
   margin: 10px;
@@ -68,15 +93,23 @@ h1 {
   flex-direction: column;
   border: none;
   border-radius: 20px;
-  box-shadow: #000000 0px 0px 10px -4px;
+  background-color: #ffffff6e;
+  box-shadow: #ffffff 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -4px;
 }
 .active {
-  background-color: #ff9900; /* Tässä voit määrittää valitun hakukoneen taustavärin */
+  background-color: #ffffff6e; /* Tässä voit määrittää valitun hakukoneen taustavärin */ /* #ff9900 */
   border-radius: 20px;
+  box-shadow: #ffffff 0px 0px 10px -2px, inset #292929 0px 0px 10px -2px;
 }
 .engine p {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%);
+  margin: 10px 0 10px 0;
   text-align: center;
   color: #000000;
+  font-size: 15px;
 }
 .engine img {
   text-align: center;
@@ -85,6 +118,7 @@ h1 {
   object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
 
   -moz-user-select: none; /* Firefox */
+  -moz-user-drag: none; /* Firefox */
   -webkit-user-drag: none; /* Safari ja Chrome */
   -webkit-user-select: none; /* Safari ja Chrome */
   -ms-user-select: none; /* Internet Explorer/Edge */
