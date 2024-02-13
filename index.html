@@ -11,74 +11,76 @@
 </head>
 
 <body>
+    <div id="main">
+        <div id="clock">
+            <div class="clock">
+                <div class="num num1">
+                    <div>1</div>
+                </div>
+                <div class="num num2">
+                    <div>2</div>
+                </div>
+                <div class="num num3">
+                    <div>3</div>
+                </div>
+                <div class="num num4">
+                    <div>4</div>
+                </div>
+                <div class="num num5">
+                    <div>5</div>
+                </div>
+                <div class="num num6">
+                    <div>6</div>
+                </div>
+                <div class="num num7">
+                    <div>7</div>
+                </div>
+                <div class="num num8">
+                    <div>8</div>
+                </div>
+                <div class="num num9">
+                    <div>9</div>
+                </div>
+                <div class="num num10">
+                    <div>10</div>
+                </div>
+                <div class="num num11">
+                    <div>11</div>
+                </div>
+                <div class="num num12">
+                    <div>12</div>
+                </div>
 
-    <div id="clock">
-        <div class="clock">
-            <div class="num num1">
-                <div>1</div>
+                <div class="hand" id="sec">
+                    <div class="sec"></div>
+                </div>
+                <div class="hand" id="min">
+                    <div class="min"></div>
+                </div>
+                <div class="hand" id="hour">
+                    <div class="hour"></div>
+                </div>
             </div>
-            <div class="num num2">
-                <div>2</div>
-            </div>
-            <div class="num num3">
-                <div>3</div>
-            </div>
-            <div class="num num4">
-                <div>4</div>
-            </div>
-            <div class="num num5">
-                <div>5</div>
-            </div>
-            <div class="num num6">
-                <div>6</div>
-            </div>
-            <div class="num num7">
-                <div>7</div>
-            </div>
-            <div class="num num8">
-                <div>8</div>
-            </div>
-            <div class="num num9">
-                <div>9</div>
-            </div>
-            <div class="num num10">
-                <div>10</div>
-            </div>
-            <div class="num num11">
-                <div>11</div>
-            </div>
-            <div class="num num12">
-                <div>12</div>
-            </div>
+        </div>
 
-            <div class="hand" id="sec">
-                <div class="sec"></div>
+        <h1>Home Page</h1>
+        <div class="searchbox" id="searchbox">
+            <div id="Search_Bar_wrapper">
+                <div id="Search_Bar">
+                    <input type="search" placeholder="Search anything!" id="searchInput" autofocus>
+                    <button class="inputButtons" id="clearInput">X</button>
+                    <button class="inputButtons" id="runSearchBtn">
+                        <img src="images/icons/Magnifying_glass_icon_mgx2.svg" alt="Magnifying glass">
+                    </button>
+                </div>
             </div>
-            <div class="hand" id="min">
-                <div class="min"></div>
-            </div>
-            <div class="hand" id="hour">
-                <div class="hour"></div>
+            <div id="Search_Engines">
+                <!-- Hakukoneet lisätään tähän dynaamisesti -->
             </div>
         </div>
     </div>
 
-    <h1>Home Page</h1>
-    <div class="searchbox" id="searchbox">
-        <div id="Search_Bar_wrapper">
-            <div id="Search_Bar">
-                <input type="search" placeholder="Search anything!" id="searchInput" autofocus>
-                <button class="inputButtons" id="clearInput">X</button>
-                <button class="inputButtons" id="runSearchBtn">
-                    <img src="images/icons/Magnifying_glass_icon_mgx2.svg" alt="Magnifying glass">
-                </button>
-            </div>
-        </div>
-        <div id="Search_Engines">
-            <!-- Hakukoneet lisätään tähän dynaamisesti -->
-        </div>
-    </div>
-
+    <div id="news"></div>
 
     <script src="js/search.js"></script>
     <script src="js/search_engines.js"></script>
