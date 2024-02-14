@@ -6,9 +6,6 @@
 body {
   background: fixed linear-gradient(#fff06e, #0099ff);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 h1 {
   color: #ffffff6e;
@@ -19,7 +16,7 @@ h1 {
 #main {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -83,7 +80,7 @@ h1 {
   object-fit: contain; /* Tämä säilyttää kuvasuhteen ja täyttää koko 130x130 pikselin alueen */
 }
 
-#Search_Engines {
+#Search-Engines {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

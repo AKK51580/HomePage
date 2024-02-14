@@ -6,7 +6,7 @@
 //   .then((data) => {
 //     var newsContainer = document.getElementById("news");
 //     data.articles.forEach(function (article) {
-//       var newsElement = document.createElement("div");
+//       let newsElement = document.createElement("div");
 //       newsElement.innerHTML = `
 //                 <h2>${article.title}</h2>
 //                 <p>${article.description}</p>
@@ -20,79 +20,79 @@
 //     console.error("Error:", error);
 //   });
 
-var rssFeedUrl = "https://www.is.fi/rss/tuoreimmat.xml";
+// Määrittele kaikki RSS-syötteet yhteen taulukkoon
+let rssFeeds = [
+    "https://www.is.fi/rss/tuoreimmat.xml",
+    "http://feed.androidauthority.com/",
+    // Lisää muita RSS-syötteitä tarvittaessa
+];
+
+// Rajoita jokaisen lähteen tuomien uutisten määrä
+const maxNewsPerFeed = 10;
 
 // Funktion määrittely, joka hakee ja näyttää uutiset annetusta URL:stä
 function fetchAndDisplayNews(rssFeedUrl) {
-  fetch(rssFeedUrl)
-    .then((response) => response.text())
-    .then((data) => {
-      var parser = new DOMParser();
-      var xmlDoc = parser.parseFromString(data, "text/xml");
+    fetch(rssFeedUrl)
+        .then((response) => response.text())
+        .then((data) => {
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(data, "text/xml");
 
-      var newsContainer = document.getElementById("news");
-      var items = xmlDoc.getElementsByTagName("item");
+            let newsContainer = document.getElementById("news-feed");
+            let items = xmlDoc.getElementsByTagName("item");
 
-      for (var i = 0; i < items.length; i++) {
-        var titleElement = items[i].getElementsByTagName("title")[0];
-        var title = titleElement
-          ? titleElement.textContent
-          : "Otsikko ei saatavilla";
+            let newsCount = 0; // Laskuri uutisten määrälle
 
-        var linkElement = items[i].getElementsByTagName("link")[0];
-        var link = linkElement ? linkElement.textContent : "#";
+            for (let i = 0; i < items.length; i++) {
+                if (newsCount >= maxNewsPerFeed) break; // Jos uutisten määrä on saavuttanut maksimin, lopeta silmukka
 
-        var pubDateElement = items[i].getElementsByTagName("pubDate")[0];
-        var pubDate = pubDateElement
-          ? new Date(pubDateElement.textContent)
-          : new Date();
+                let titleElement = items[i].getElementsByTagName("title")[0];
+                let title = titleElement ? titleElement.textContent : "Otsikko ei saatavilla";
 
-        var categoryElement = items[i].getElementsByTagName("category")[0];
-        var category = categoryElement
-          ? categoryElement.textContent
-          : "Kategoria ei saatavilla";
+                let linkElement = items[i].getElementsByTagName("link")[0];
+                let link = linkElement ? linkElement.textContent : "#";
 
-        var descriptionElement =
-          items[i].getElementsByTagName("description")[0];
-        var description = descriptionElement
-          ? descriptionElement.textContent
-          : "Kuvaus ei saatavilla";
+                let pubDateElement = items[i].getElementsByTagName("pubDate")[0];
+                let pubDate = pubDateElement ? new Date(pubDateElement.textContent) : new Date();
 
-        var options = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-        };
-        var formattedDate = pubDate.toLocaleDateString("fi-FI", options);
+                let categoryElement = items[i].getElementsByTagName("category")[0];
+                let category = categoryElement ? categoryElement.textContent : "Kategoria ei saatavilla";
 
-        var newsElement = document.createElement("div");
-        newsElement.innerHTML = `
-          <a href="${link}" target="_blank">
-            <h2>${title}</h2>
-            <p>${description}</p>
-            <p>Kategoria: ${category}</p>
-            <p>Julkaistu: ${formattedDate}</p>
-          </a>
-          <hr>
-        `;
-        newsContainer.appendChild(newsElement);
-      }
-    })
-    .catch((error) => {
-      console.error("Virhe:", error);
-    });
+                let descriptionElement = items[i].getElementsByTagName("description")[0];
+                let description = descriptionElement ? descriptionElement.textContent : "Kuvaus ei saatavilla";
+
+                let options = {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                };
+                let formattedDate = pubDate.toLocaleDateString("fi-FI", options);
+
+                let newsElement = document.createElement("div");
+                newsElement.classList.add("news-item"); // Lisää class-nimi "news-item"
+                newsElement.innerHTML = `
+                    <a href="${link}" target="_blank">
+                        <h2>${title}</h2>
+                        <p>${description}</p>
+                        <p>Kategoria: ${category}</p>
+                        <p>Julkaistu: ${formattedDate}</p>
+                    </a>
+                `;
+                newsContainer.appendChild(newsElement);
+                
+                newsCount++; // Lisää uutisen laskuria yhdellä
+            }
+        })
+        .catch((error) => {
+            console.error("Virhe:", error);
+        });
 }
 
-// Funktion kutsu, joka hakee ja näyttää uutiset sivun latautuessa
+// Funktion kutsu, joka hakee ja näyttää uutiset kaikista RSS-syötteistä
 document.addEventListener("DOMContentLoaded", function () {
-  fetchAndDisplayNews(rssFeedUrl);
-});
-
-// Funktion kutsu, joka hakee ja näyttää lisää uutisia, kun käyttäjä skrollaa sivun alareunaan
-window.addEventListener("scroll", function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    fetchAndDisplayNews(rssFeedUrl);
-  }
+    rssFeeds.forEach(function (rssFeedUrl) {
+        fetchAndDisplayNews(rssFeedUrl);
+    });
 });

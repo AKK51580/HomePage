@@ -35,7 +35,7 @@ const searchEngines = [
 ];
 
 // Haetaan hakukoneiden container-div
-const Search_Engines = document.getElementById("Search_Engines");
+const Search_Engines = document.getElementById("Search-Engines");
 
 // Käydään läpi hakukonelista ja lisätään div jokaiselle
 searchEngines.forEach((engine) => {

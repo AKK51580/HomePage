@@ -1,10 +1,35 @@
-@import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
-
-#feedControl {
-margin-top : 10px;
-margin-left: auto;
-margin-right: auto;
-width : 440px;
-font-size: 12px;
-color: #9CADD0;
+#news {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+#news-feed {
+	position: relative;
+	max-width: 1000px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.news-item {
+	background-color: #ffffff6e;
+	width: 100%;
+	margin: 15px;
+	padding: 20px;
+	border-radius: 10px;
+}
+.news-item a{
+	text-decoration: none;
+}
+.news-item h2{
+	margin: 0 0 10px 0;
+	color: black;
+	text-decoration: none;
+}
+.news-item p{
+	margin: 0 0 10px 0;
+	color: black;
+	text-decoration: none;
 }
