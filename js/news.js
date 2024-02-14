@@ -29,7 +29,7 @@ let rssFeeds = [
   "https://www.theverge.com/rss/index.xml",
   "https://www.mikrobitti.fi/api/feed/v2/rss/mb",
   "http://feeds.bbci.co.uk/news/rss.xml",
-  "/rss/washingtonpost.xml",
+  "https://akk51580.github.io/HomePage/rss/washingtonpost.xml",
   "https://news.google.com/news/rss/headlines/section/geo/fi",
   "https://news.google.com/news/rss",
   // Lisää muita RSS-syötteitä tarvittaessa
