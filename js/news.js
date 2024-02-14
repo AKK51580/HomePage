@@ -22,16 +22,86 @@
 
 // Määrittele kaikki RSS-syötteet yhteen taulukkoon
 let rssFeeds = [
-  "https://www.is.fi/rss/tuoreimmat.xml",
-  //   "http://feed.androidauthority.com/",
-  //   "https://wp.tekniikanmaailma.fi/feed",
-  //   "https://www.techradar.com/feeds.xml",
-  "https://www.theverge.com/rss/index.xml",
-  "https://www.mikrobitti.fi/api/feed/v2/rss/mb",
-  "http://feeds.bbci.co.uk/news/rss.xml",
-  "https://akk51580.github.io/HomePage/rss/washingtonpost.xml",
-  "https://news.google.com/news/rss/headlines/section/geo/fi",
-  "https://news.google.com/news/rss",
+  {
+    url: "https://www.is.fi/rss/tuoreimmat.xml",
+    source: "Ilta-Sanomat",
+  },
+  {
+    url: "https://www.theverge.com/rss/index.xml",
+    source: "The Verge",
+  },
+  {
+    url: "https://www.mikrobitti.fi/api/feed/v2/rss/mb",
+    source: "Mikrobitti",
+  },
+  {
+    url: "http://feeds.bbci.co.uk/news/rss.xml",
+    source: "BBC News",
+  },
+  {
+    url: "https://akk51580.github.io/HomePage/rss/washingtonpost.xml",
+    source: "Washington Post",
+  },
+  {
+    url: "https://news.google.com/news/rss/headlines/section/geo/fi",
+    source: "Google News",
+  },
+  {
+    url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+    source: "The New York Times",
+  },
+  {
+    url: "http://feeds.venturebeat.com/editorspick",
+    source: "Venture Beat",
+  },
+  {
+    url: "https://muropaketti.com/feed",
+    source: "Muropaketti",
+  },
+  {
+    url: "https://api.mtvuutiset.fi/mtvuutiset/api/feed/rss/uutiset_uusimmat",
+    source: "MTV Uutiset",
+  },
+  {
+    url: "https://techcrunch.com/feed/",
+    source: "TechCrunch",
+  },
+  {
+    url: "https://www.cnet.com/rss/news/",
+    source: "CNET",
+  },
+  {
+    url: "https://www.tomshardware.com/feeds/all",
+    source: "Tom's Hardware",
+  },
+  {
+    url: "https://www.tivi.fi/api/feed/v2/rss/tv",
+    source: "Tivi",
+  },
+  {
+    url: "https://www.androidpolice.com/feed/",
+    source: "Android Police",
+  },
+  {
+    url: "https://www.windowscentral.com/feed.xml",
+    source: "Windows Central",
+  },
+  {
+    url: "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_UUTISET&concepts=18-139752",
+    source: "YLE Uutiset Lappi",
+  },
+  {
+    url: "https://www.theregister.com/headlines.atom",
+    source: "The Register",
+  },
+  {
+    url: "https://www.gamereactor.com/rss/rss.php?texttype=[4,1,2,3,5,9,10,7,8,11]",
+    source: "GAMEREACTOR",
+  },
+  {
+    url: "https://www.gamereactor.fi/rss/rss.php?texttype=[4,1,2,3,5,9,10,7,8,11]",
+    source: "GAMEREACTOR FI",
+  },
   // Lisää muita RSS-syötteitä tarvittaessa
 ];
 
@@ -39,8 +109,8 @@ let rssFeeds = [
 const maxNewsPerSource = 10;
 
 // Funktion määrittely, joka hakee ja näyttää uutiset annetusta URL:stä
-function fetchAndDisplayNews(rssFeedUrl) {
-  fetch(rssFeedUrl)
+function fetchAndDisplayNews(feed) {
+  fetch(feed.url)
     .then((response) => response.text())
     .then((data) => {
       let parser = new DOMParser();
@@ -91,6 +161,7 @@ function fetchAndDisplayNews(rssFeedUrl) {
         newsElement.classList.add("news-item"); // Lisää class-nimi "news-item"
         newsElement.innerHTML = `
                     <a href="${link}" target="_blank">
+                        <h3>${feed.source}</h3> <!-- Lisää lähteen nimi uutisen yläpuolelle -->
                         <h2>${title}</h2>
                         <p>${description}</p>
                         <p>${category}</p>
@@ -109,7 +180,7 @@ function fetchAndDisplayNews(rssFeedUrl) {
 
 // Funktion kutsu, joka hakee ja näyttää uutiset kaikista RSS-syötteistä
 document.addEventListener("DOMContentLoaded", function () {
-  rssFeeds.forEach(function (rssFeedUrl) {
-    fetchAndDisplayNews(rssFeedUrl);
+  rssFeeds.forEach(function (feed) {
+    fetchAndDisplayNews(feed);
   });
 });

@@ -26,10 +26,11 @@
 .news-item h2 {
   margin: 0 0 10px 0;
   color: black;
-  text-decoration: none;
+}
+.news-item h3 {
+  margin: 0 0 15px 0;
 }
 .news-item p {
   margin: 22px 0 0 0;
   color: black;
-  text-decoration: none;
 }
