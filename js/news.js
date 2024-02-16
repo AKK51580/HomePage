@@ -39,7 +39,7 @@ let rssFeeds = [
     source: "BBC News",
   },
   {
-    url: "https://akk51580.github.io/HomePage/rss/washingtonpost.xml",
+    url: "",
     source: "Washington Post",
   },
   {
@@ -102,6 +102,38 @@ let rssFeeds = [
     url: "https://www.gamereactor.fi/rss/rss.php?texttype=[4,1,2,3,5,9,10,7,8,11]",
     source: "GAMEREACTOR FI",
   },
+  {
+    url: "https://feeds.theguardian.com/theguardian/uk/rss",
+    source: "The Guardian",
+  },  
+  {
+    url: "https://feeds.bloomberg.com/technology/news.rss",
+    source: "Bloomberg",
+  },
+  {
+    url: "https://feeds.bloomberg.com/politics/news.rss",
+    source: "Bloomberg",
+  },  
+  {
+    url: "https://feeds.npr.org/",
+    source: "NPR",
+  },
+  {
+    url: "http://rss.politico.com/morningtech.xml",
+    source: "Politico",
+  },
+  {
+    url: "https://rss.politico.com/politics-news.xml",
+    source: "Politico",
+  },
+  {
+    url: "http://rss.cnn.com/rss/edition.rss",
+    source: "CNN",
+  },
+  {
+    url: "https://meduza.io/rss/en/all",
+    source: "Meduza",
+  },  
   // Lisää muita RSS-syötteitä tarvittaessa
 ];
 
@@ -142,11 +174,18 @@ function fetchAndDisplayNews(feed) {
           ? categoryElement.textContent
           : "Kategoria ei saatavilla";
 
-        let descriptionElement =
-          items[i].getElementsByTagName("description")[0];
-        let description = descriptionElement
-          ? descriptionElement.textContent
-          : "Kuvaus ei saatavilla";
+          let maxLength = 450; // Maksimipituus
+          let descriptionElement = items[i].getElementsByTagName("description")[0];
+          let description = descriptionElement
+            ? descriptionElement.textContent
+            : "Kuvaus ei saatavilla";
+          
+          if (description.length > maxLength) {
+            let lastSpaceIndex = description.lastIndexOf(" ", maxLength); // Etsi viimeinen välilyönti ennen maksimipituutta
+            description = description.slice(0, lastSpaceIndex) + "..."; // Leikkaa teksti viimeiseen välilyöntiin ja lisää perään kolme pistettä
+          }
+          
+          
 
         let options = {
           year: "numeric",

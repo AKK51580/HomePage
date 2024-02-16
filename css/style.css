@@ -1,7 +1,8 @@
 * {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
+  font-size: 16px;
 }
 body {
   background: fixed linear-gradient(#fff06e, #0099ff);
