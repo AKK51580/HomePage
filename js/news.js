@@ -105,7 +105,7 @@ let rssFeeds = [
   {
     url: "https://feeds.theguardian.com/theguardian/uk/rss",
     source: "The Guardian",
-  },  
+  },
   {
     url: "https://feeds.bloomberg.com/technology/news.rss",
     source: "Bloomberg",
@@ -113,7 +113,7 @@ let rssFeeds = [
   {
     url: "https://feeds.bloomberg.com/politics/news.rss",
     source: "Bloomberg",
-  },  
+  },
   {
     url: "https://feeds.npr.org/",
     source: "NPR",
@@ -133,7 +133,11 @@ let rssFeeds = [
   {
     url: "https://meduza.io/rss/en/all",
     source: "Meduza",
-  },  
+  },
+  {
+    url: "https://www.zdnet.com/news/rss.xml",
+    source: "ZDNET",
+  },
   // Lisää muita RSS-syötteitä tarvittaessa
 ];
 
@@ -174,18 +178,17 @@ function fetchAndDisplayNews(feed) {
           ? categoryElement.textContent
           : "Kategoria ei saatavilla";
 
-          let maxLength = 450; // Maksimipituus
-          let descriptionElement = items[i].getElementsByTagName("description")[0];
-          let description = descriptionElement
-            ? descriptionElement.textContent
-            : "Kuvaus ei saatavilla";
-          
-          if (description.length > maxLength) {
-            let lastSpaceIndex = description.lastIndexOf(" ", maxLength); // Etsi viimeinen välilyönti ennen maksimipituutta
-            description = description.slice(0, lastSpaceIndex) + "..."; // Leikkaa teksti viimeiseen välilyöntiin ja lisää perään kolme pistettä
-          }
-          
-          
+        let maxLength = 450; // Maksimipituus
+        let descriptionElement =
+          items[i].getElementsByTagName("description")[0];
+        let description = descriptionElement
+          ? descriptionElement.textContent
+          : "Kuvaus ei saatavilla";
+
+        if (description.length > maxLength) {
+          let lastSpaceIndex = description.lastIndexOf(" ", maxLength); // Etsi viimeinen välilyönti ennen maksimipituutta
+          description = description.slice(0, lastSpaceIndex) + "..."; // Leikkaa teksti viimeiseen välilyöntiin ja lisää perään kolme pistettä
+        }
 
         let options = {
           year: "numeric",
@@ -223,3 +226,15 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchAndDisplayNews(feed);
   });
 });
+
+// Uutis feedin näkymän vaihto
+function switchView(view) {
+  const newsFeed = document.getElementById("news-feed");
+  if (view === "list") {
+    newsFeed.classList.remove("grid");
+    newsFeed.classList.add("list");
+  } else if (view === "grid") {
+    newsFeed.classList.remove("list");
+    newsFeed.classList.add("grid");
+  }
+}

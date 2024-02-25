@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/clock.css">
     <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/settings.css">
 </head>
 
 <body>
@@ -82,10 +83,17 @@
     </div>
 
     <div id="news">
+        <div class="flexbox-wrapper-row">
+            <button onclick="switchView('list')" class="settings-btns">List View</button>
+            <button onclick="switchView('grid')" class="settings-btns">Grid View</button>
+        </div>
+
         <div id="news-feed">
 
         </div>
-	</div>
+
+    </div>
+    </div>
 
     <script src="js/search.js" async></script>
     <script src="js/search_engines.js" async></script>

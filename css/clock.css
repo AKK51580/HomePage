@@ -163,10 +163,3 @@
   width: 8px;
   border-radius: 4px;
 }
-
-@media (max-width: 1250px) {
-  /* Tähän lisää tyylit, jotka haluat kohdistaa, kun näytön leveys on alle 1250px */
-  #clock {
-    display: none;
-  }
-}

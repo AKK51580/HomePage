@@ -3,20 +3,30 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 #news-feed {
   position: relative;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   width: 100%;
   display: flex;
-  justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
+}
+#news-feed.list {
+  /* Listan tyyli */
+  align-items: center;
+  flex-direction: column;
+}
+#news-feed.grid {
+  /* Ruudukon tyyli */
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 .news-item {
   background-color: #ffffff6e;
-  width: 100%;
-  margin: 15px;
+  max-width: 650px;
+  width: auto;
+  margin: 25px 10px 25px 10px;
   padding: 20px;
   border-radius: 10px;
 }

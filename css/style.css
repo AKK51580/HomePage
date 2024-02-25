@@ -1,12 +1,20 @@
 * {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   font-size: 16px;
 }
 body {
   background: fixed linear-gradient(#fff06e, #0099ff);
   min-height: 100vh;
+}
+.flexbox-wrapper-row {
+  display: flex;
+  flex-direction: row;
+}
+.flexbox-wrapper-column {
+  display: flex;
+  flex-direction: column;
 }
 h1 {
   color: #ffffff6e;
@@ -127,4 +135,17 @@ h1 {
   -webkit-user-select: none; /* Safari ja Chrome */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Yleinen arvo */
+}
+
+@media (max-width: 1250px) {
+  /* Tähän lisää tyylit, jotka haluat kohdistaa, kun näytön leveys on alle 1250px */
+  #clock {
+    display: none;
+  }
+}
+@media (max-width: 510px) {
+  /* Tähän lisää tyylit, jotka haluat kohdistaa, kun näytön leveys on alle 510px */
+  h1 {
+    display: none;
+  }
 }
