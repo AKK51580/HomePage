@@ -30,6 +30,11 @@ h1 {
   justify-content: center;
   flex-direction: column;
 }
+#settings-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 .searchbox {
   height: auto;
 }
