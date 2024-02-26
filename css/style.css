@@ -111,7 +111,7 @@ h1 {
   border: none;
   border-radius: 20px;
   background-color: #ffffff6e;
-  box-shadow: #292929 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -1px;
+  box-shadow: #292929 0px 0px 10px -6px, inset #ffffff 0px 0px 10px -1px;
 }
 .active {
   background-color: #ffffff6e; /* Tässä voit määrittää valitun hakukoneen taustavärin */ /* #ff9900 */
