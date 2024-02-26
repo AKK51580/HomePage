@@ -52,7 +52,7 @@ h1 {
   border: none;
   border-radius: 10px;
   font-size: 16px;
-  box-shadow: #ffffff 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -4px;
+  box-shadow: #313131 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -4px;
 }
 #Search_Bar input:focus {
   border: none;
@@ -66,9 +66,9 @@ h1 {
   height: 35px;
   border: none;
   border-radius: 5px;
-  box-shadow: #ffffff 0px 0px 4px -2px, inset #ffffff 0px 0px 4px -2px;
+  box-shadow: #000000 0px 0px 4px -2px, inset #ffffff 0px 0px 4px -2px;
 }
-.inputButtons:hover {
+.inputButtons:active {
   box-shadow: #ffffff 0px 0px 4px -2px, inset #000000 0px 0px 4px -2px;
 }
 #clearInput {
@@ -106,12 +106,12 @@ h1 {
   border: none;
   border-radius: 20px;
   background-color: #ffffff6e;
-  box-shadow: #ffffff 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -4px;
+  box-shadow: #292929 0px 0px 10px -4px, inset #ffffff 0px 0px 10px -1px;
 }
 .active {
   background-color: #ffffff6e; /* Tässä voit määrittää valitun hakukoneen taustavärin */ /* #ff9900 */
   border-radius: 20px;
-  box-shadow: #ffffff 0px 0px 10px -2px, inset #292929 0px 0px 10px -2px;
+  box-shadow: #ffffff 0px 0px 10px -2px, inset #292929 0px 0px 10px -1px;
 }
 .engine p {
   position: absolute;

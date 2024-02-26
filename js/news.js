@@ -226,15 +226,3 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchAndDisplayNews(feed);
   });
 });
-
-// Uutis feedin näkymän vaihto
-function switchView(view) {
-  const newsFeed = document.getElementById("news-feed");
-  if (view === "list") {
-    newsFeed.classList.remove("grid");
-    newsFeed.classList.add("list");
-  } else if (view === "grid") {
-    newsFeed.classList.remove("list");
-    newsFeed.classList.add("grid");
-  }
-}

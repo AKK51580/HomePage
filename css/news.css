@@ -24,8 +24,8 @@
 }
 .news-item {
   background-color: #ffffff6e;
-  max-width: 650px;
-  width: auto;
+  max-width: 600px;
+  width: 100%;
   margin: 25px 10px 25px 10px;
   padding: 20px;
   border-radius: 10px;
