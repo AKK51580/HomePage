@@ -21,21 +21,17 @@ function switchView() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Haetaan tallennettu näkymäasetus localStoragesta
   const preferredView = localStorage.getItem("preferredView");
-  const newsFeed = document.getElementById("news-feed");
 
   // Jos asetus on tallennettu ja se on 'grid', valitaan 'grid' näkymä
   if (preferredView === "grid") {
     document.getElementById("gridView").checked = true;
-    newsFeed.classList.remove("list");
-    newsFeed.classList.add("grid");
   }
   // Jos asetus on tallennettu ja se on 'list', valitaan 'list' näkymä
   else if (preferredView === "list") {
     document.getElementById("listView").checked = true;
-    newsFeed.classList.remove("grid");
-    newsFeed.classList.add("list");
   }
 });
 
-console.log(view);
+console.log("Testing");
