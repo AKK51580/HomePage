@@ -138,6 +138,54 @@ let rssFeeds = [
     url: "https://www.zdnet.com/news/rss.xml",
     source: "ZDNET",
   },
+  {
+    url: "http://feed.androidauthority.com/",
+    source: "Android Authority",
+  },
+  {
+    url: "https://www.techradar.com/feeds.xml",
+    source: "Techradar",
+  },
+  {
+    url: "https://www.neowin.net/news/rss/",
+    source: "Neowin",
+  },
+  {
+    url: "https://www.episodi.fi/feed",
+    source: "Episodi",
+  },
+  {
+    url: "https://www.forbes.com/technology/feed",
+    source: "Forbes",
+  },
+  {
+    url: "https://www.tekniikkatalous.fi/api/feed/v2/rss/tt",
+    source: "Tekniikkatalous",
+  },
+  {
+    url: "https://markets.businessinsider.com/rss/news",
+    source: "Business Insider",
+  },
+  {
+    url: "https://markets.businessinsider.com/",
+    source: "Business Insider",
+  },
+  {
+    url: "https://feeds.kauppalehti.fi/rss/popular",
+    source: "Kauppalehti",
+  },
+  {
+    url: "https://feeds.kauppalehti.fi/rss/main",
+    source: "Kauppalehti",
+  },
+  {
+    url: "http://www.hs.fi/rss/teasers/etusivu.xml",
+    source: "Helsingin Sanomat",
+  },
+  {
+    url: "http://www.hs.fi/rss/tuoreimmat.xml",
+    source: "Helsingin Sanomat",
+  },
   // Lisää muita RSS-syötteitä tarvittaessa
 ];
 
